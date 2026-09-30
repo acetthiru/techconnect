@@ -1,0 +1,13 @@
+# TECH BRIDGE '26 - ACETCM
+> Official Technical Symposium platform for ACETCM'26 TECH BRIDGE Visual Rebus Competition by the Department of Computer Science & Engineering, Achariya College of Engineering Technology.
+
+## Overview
+TECH BRIDGE '26 is an interactive real-time technical quiz and visual rebus challenge.
+- Round 1: Visual Technical Rebus (Foundations & Systems)
+- Round 2: Architecture & Distributed Computing Visual Riddles
+- Round 3: Live Buzzer Rapid-Fire Rebus Finale
+
+## Organization
+- Institution: Achariya College of Engineering Technology, Puducherry
+- Department: Department of Computer Science and Engineering
+- Event: National Level Technical Symposium ACETCM'26

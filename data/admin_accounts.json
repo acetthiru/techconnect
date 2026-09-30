@@ -1,0 +1,45 @@
+[
+  {
+    "username": "ACETTHIRU",
+    "passwordHash": "$2b$10$aw174NecCbAQpkeoCCWFI.2JpI7kQC6cRsilX4b4e.CH9s72mviby",
+    "role": "SUPER_ADMIN",
+    "name": "Dr. Thiru (HOD CSE)",
+    "createdAt": 1711700000000
+  },
+  {
+    "username": "Acetking",
+    "passwordHash": "$2b$10$aw174NecCbAQpkeoCCWFI.2JpI7kQC6cRsilX4b4e.CH9s72mviby",
+    "role": "SUPER_ADMIN",
+    "name": "Chief Organizer Admin",
+    "createdAt": 1711700000000
+  },
+  {
+    "username": "MOD_CSE",
+    "passwordHash": "$2b$10$aw174NecCbAQpkeoCCWFI.2JpI7kQC6cRsilX4b4e.CH9s72mviby",
+    "role": "ADMIN",
+    "name": "Department Faculty Moderator",
+    "createdAt": 1711700000000
+  },
+  {
+    "username": "REPORT_CSE",
+    "passwordHash": "$2b$10$aw174NecCbAQpkeoCCWFI.2JpI7kQC6cRsilX4b4e.CH9s72mviby",
+    "role": "REPORT_MANAGER",
+    "name": "Symposium Reports In-charge",
+    "createdAt": 1711700000000
+  },
+  {
+    "username": "DISP_HALL1",
+    "passwordHash": "$2b$10$aw174NecCbAQpkeoCCWFI.2JpI7kQC6cRsilX4b4e.CH9s72mviby",
+    "role": "DISPLAY_ONLY",
+    "name": "Auditorium Projector Display",
+    "createdAt": 1711700000000
+  },
+  {
+    "username": "TEST_ADMIN_6357",
+    "passwordHash": "$2b$10$pti75SMFdHprxGO4WreIUOuNh6HhQPRq85soYPf3BrUo2njwhiR2G",
+    "role": "ADMIN",
+    "name": "Test Administrator",
+    "disabled": false,
+    "createdAt": 1790752486461
+  }
+]

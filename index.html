@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      /* AI Studio environment constraint: HMR is disabled, ignore WebSocket errors */
+      (function() {
+        function isWsError(err) {
+          if (!err) return false;
+          var msg = (typeof err === 'string' ? err : (err.message || err.reason || '')) + '';
+          return msg.includes('WebSocket') || msg.includes('websocket') || msg.includes('[vite]') || msg.includes('vite-hmr');
+        }
+        window.addEventListener('unhandledrejection', function(event) {
+          if (isWsError(event.reason)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+        window.addEventListener('error', function(event) {
+          if (isWsError(event.message) || isWsError(event.error)) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return false;
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="theme-color" content="#030712" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <title>ACETCM'26 - TECH BRIDGE - Achariya College of Engineering Technology</title>
+    <meta name="description" content="National Level Technical Symposium ACETCM'26: TECH BRIDGE Visual Technical Rebus Challenge conducted by the Department of Computer Science and Engineering, Achariya College of Engineering Technology." />
+    <meta name="keywords" content="TECH BRIDGE, ACETCM'26, Achariya College of Engineering Technology, CSE Symposium, Technical Rebus, Technical Quiz, ACET Puducherry" />
+    <meta name="author" content="Department of Computer Science and Engineering, Achariya College of Engineering Technology" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ACETCM'26 - TECH BRIDGE | Visual Technical Rebus Challenge" />
+    <meta property="og:description" content="National Level Symposium ACETCM'26 conducted by Department of Computer Science and Engineering, Achariya College of Engineering Technology." />
+    <meta property="og:image" content="/tech_bridge_landing.webp" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ACETCM'26 - TECH BRIDGE | Visual Technical Rebus Challenge" />
+    <meta name="twitter:description" content="National Level Technical Symposium ACETCM'26 conducted by Department of Computer Science and Engineering, Achariya College of Engineering Technology." />
+    <meta name="twitter:image" content="/tech_bridge_landing.webp" />
+    
+    <link rel="icon" type="image/webp" href="/tech_bridge_logo.webp" />
+    <link rel="apple-touch-icon" href="/tech_bridge_logo.webp" />
+    
+    <!-- Preconnect to Font Origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- LCP High-Priority Responsive Image Preload with imagesrcset & imagesizes -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="/tech_bridge_landing_480w.avif" 
+      imagesrcset="/tech_bridge_landing_360w.avif 360w, /tech_bridge_landing_480w.avif 480w, /tech_bridge_landing_768w.avif 768w, /tech_bridge_landing_1080w.avif 1080w, /tech_bridge_landing_1440w.avif 1440w"
+      imagesizes="(max-width: 480px) 100vw, (max-width: 768px) 95vw, (max-width: 1200px) 85vw, 1080px"
+      type="image/avif" 
+      fetchpriority="high" 
+    />
+    
+    <!-- Critical Inlined CSS for 0ms Instant First Contentful Paint & LCP -->
+    <style id="critical-landing-css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        color: #f1f5f9;
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #event-landing-root {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+        max-width: 100vw;
+        max-height: 100dvh;
+        overflow: hidden;
+        background-color: #000000;
+        color: #f1f5f9;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #landing-event-poster-img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        margin: 0 auto;
+        filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.7));
+      }
+      .font-tech {
+        font-family: 'Chakra Petch', sans-serif;
+      }
+      .font-mono-code {
+        font-family: 'JetBrains Mono', monospace;
+      }
+    </style>
+    
+    <!-- Non-render-blocking Google Web Fonts with font-display=swap -->
+    <link 
+      rel="preload" 
+      as="style" 
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" 
+    />
+    <link 
+      rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" 
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" 
+      />
+    </noscript>
+
+    <!-- Schema.org Structured Data for Rich Search Results and Agentic Browsing (4/4) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://acettechbridge.ai.studio/#website",
+          "url": "https://acettechbridge.ai.studio/",
+          "name": "TECH BRIDGE '26 - ACETCM",
+          "description": "Official Real-Time Technical Arena and Symposium Platform for ACETCM'26 TECH BRIDGE Visual Rebus Competition",
+          "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "Department of Computer Science and Engineering, Achariya College of Engineering Technology",
+            "url": "https://achariya.in"
+          }
+        },
+        {
+          "@type": "EducationEvent",
+          "@id": "https://acettechbridge.ai.studio/#event",
+          "name": "ACETCM'26 - TECH BRIDGE: Visual Technical Rebus Challenge",
+          "description": "National Level Technical Symposium event featuring 3 rounds of visual technical rebus, debugging riddles, and buzzer-round challenges.",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+          "organizer": {
+            "@type": "EducationalOrganization",
+            "name": "Achariya College of Engineering Technology",
+            "department": "Department of Computer Science and Engineering",
+            "url": "https://achariya.in"
+          },
+          "location": {
+            "@type": "Place",
+            "name": "Achariya College of Engineering Technology Campus & Online Arena",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Puducherry",
+              "addressCountry": "IN"
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "INR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-950 overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

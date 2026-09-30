@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/ai-plugin.json",
+  "name_for_human": "TECH BRIDGE '26",
+  "name_for_model": "tech_bridge_symposium",
+  "description_for_human": "Visual Technical Rebus Competition platform for ACETCM'26.",
+  "description_for_model": "Official symposium competition platform for Achariya College of Engineering Technology CSE Department ACETCM'26.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://acettechbridge.ai.studio/openapi.yaml"
+  },
+  "logo_url": "https://acettechbridge.ai.studio/tech_bridge_logo.webp",
+  "contact_email": "acetlab2@gmail.com",
+  "legal_info_url": "https://acettechbridge.ai.studio/?view=rules"
+}

@@ -1,0 +1,155 @@
+{
+  "entities": {
+    "Team": {
+      "title": "Team",
+      "description": "Participant team entity for Tech Bridge '26 competition",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique Team ID (e.g. TB-7001)" },
+        "name": { "type": "string", "maxLength": 100 },
+        "participant1": { "type": "string", "maxLength": 100 },
+        "participant2": { "type": "string", "maxLength": 100 },
+        "college": { "type": "string", "maxLength": 200 },
+        "department": { "type": "string", "maxLength": 100 },
+        "year": { "type": "string", "maxLength": 50 },
+        "phone": { "type": "string", "maxLength": 20 },
+        "status": { "type": "string", "enum": ["ACTIVE", "LOCKED", "DISQUALIFIED"] },
+        "warningsCount": { "type": "number" },
+        "round1Score": { "type": "number" },
+        "round2Score": { "type": "number" },
+        "round3Score": { "type": "number" },
+        "totalScore": { "type": "number" },
+        "lastActive": { "type": "number" },
+        "isOnline": { "type": "boolean" },
+        "doorAccessGranted": { "type": "boolean" },
+        "lockReason": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "name", "participant1", "college", "phone", "status"]
+    },
+    "Submission": {
+      "title": "Submission",
+      "description": "Participant answer submission record",
+      "type": "object",
+      "properties": {
+        "teamId": { "type": "string" },
+        "questionId": { "type": "string" },
+        "round": { "type": "number" },
+        "answer": { "type": "string", "maxLength": 500 },
+        "isCorrect": { "type": "boolean" },
+        "pointsAwarded": { "type": "number" },
+        "timeTakenSeconds": { "type": "number" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["teamId", "questionId", "answer", "timestamp"]
+    },
+    "AntiCheatEvent": {
+      "title": "AntiCheatEvent",
+      "description": "Anti-cheat monitoring log entry",
+      "type": "object",
+      "properties": {
+        "teamId": { "type": "string" },
+        "eventType": { "type": "string" },
+        "details": { "type": "string", "maxLength": 1000 },
+        "timeAwaySeconds": { "type": "number" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["teamId", "eventType", "timestamp"]
+    },
+    "Feedback": {
+      "title": "Feedback",
+      "description": "Symposium feedback entry submitted by participant teams",
+      "type": "object",
+      "properties": {
+        "teamId": { "type": "string" },
+        "teamName": { "type": "string" },
+        "college": { "type": "string" },
+        "round": { "type": "number" },
+        "rating": { "type": "number" },
+        "overallRating": { "type": "number" },
+        "comments": { "type": "string", "maxLength": 2000 },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["teamId", "teamName", "rating"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "Visual Technical Rebus Question item with clue panels and accepted answers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "round": { "type": "number" },
+        "set": { "type": "string" },
+        "questionNumber": { "type": "number" },
+        "domain": { "type": "string", "maxLength": 100 },
+        "difficulty": { "type": "string", "maxLength": 50 },
+        "points": { "type": "number" },
+        "rebusFormulaText": { "type": "string", "maxLength": 500 },
+        "correctAnswer": { "type": "string", "maxLength": 500 },
+        "explanation": { "type": "string", "maxLength": 2000 },
+        "customImageUrl": { "type": "string", "maxLength": 500000 },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "round", "questionNumber", "correctAnswer"]
+    },
+    "AdminAccount": {
+      "title": "AdminAccount",
+      "description": "Administrator account profile, role, and password hash",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "maxLength": 100 },
+        "passwordHash": { "type": "string", "maxLength": 200 },
+        "role": { "type": "string", "enum": ["SUPER_ADMIN", "ADMIN", "MODERATOR", "REPORT_MANAGER", "DISPLAY_ONLY"] },
+        "name": { "type": "string", "maxLength": 100 },
+        "disabled": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "lastLogin": { "type": "number" }
+      },
+      "required": ["username", "passwordHash", "role"]
+    },
+    "EventConfig": {
+      "title": "EventConfig",
+      "description": "Persistent symposium event settings and question bank state",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "currentRound": { "type": "number" },
+        "currentQuestionIndex": { "type": "number" },
+        "clueDisplayMode": { "type": "string" },
+        "answerCheckerEnabled": { "type": "boolean" },
+        "answerCheckerTolerance": { "type": "string" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id"]
+    }
+  },
+  "firestore": {
+    "/teams/{teamId}": {
+      "schema": "Team",
+      "description": "Collection of participant team profiles"
+    },
+    "/submissions/{submissionId}": {
+      "schema": "Submission",
+      "description": "Collection of submitted answers"
+    },
+    "/anti_cheat_events/{eventId}": {
+      "schema": "AntiCheatEvent",
+      "description": "Collection of anti-cheat security violation logs"
+    },
+    "/feedback/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "Collection of event feedback submissions"
+    },
+    "/questions/{questionId}": {
+      "schema": "Question",
+      "description": "Persistent question bank documents"
+    },
+    "/admin_accounts/{username}": {
+      "schema": "AdminAccount",
+      "description": "Persistent administrator accounts"
+    },
+    "/event_config/{configId}": {
+      "schema": "EventConfig",
+      "description": "Persistent event configuration document"
+    }
+  }
+}

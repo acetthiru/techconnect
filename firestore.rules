@@ -1,0 +1,99 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Teams collection
+    match /teams/{teamId} {
+      allow read: if true;
+      allow create: if isValidId(teamId) &&
+        incoming().id == teamId &&
+        incoming().name is string && incoming().name.size() <= 100 &&
+        incoming().participant1 is string && incoming().participant1.size() <= 100 &&
+        incoming().college is string && incoming().college.size() <= 200 &&
+        incoming().phone is string && incoming().phone.size() <= 20;
+      allow update: if isValidId(teamId) &&
+        incoming().id == existing().id;
+      allow delete: if false;
+    }
+
+    // Submissions collection
+    match /submissions/{submissionId} {
+      allow read: if true;
+      allow create: if isValidId(submissionId) &&
+        incoming().teamId is string &&
+        incoming().questionId is string &&
+        incoming().answer is string && incoming().answer.size() <= 500;
+      allow update, delete: if false;
+    }
+
+    // Anti-cheat events collection
+    match /anti_cheat_events/{eventId} {
+      allow read: if true;
+      allow create: if isValidId(eventId) &&
+        incoming().teamId is string &&
+        incoming().eventType is string;
+      allow update, delete: if false;
+    }
+
+    // Feedback collection
+    match /feedback/{feedbackId} {
+      allow read: if true;
+      allow create: if isValidId(feedbackId) &&
+        incoming().teamId is string &&
+        incoming().teamName is string &&
+        incoming().rating is number;
+      allow update, delete: if false;
+    }
+
+    // Questions collection - Persistent Question Bank
+    match /questions/{questionId} {
+      allow read: if true;
+      allow create, update: if isValidId(questionId) &&
+        incoming().id == questionId &&
+        incoming().round is number &&
+        incoming().questionNumber is number &&
+        incoming().correctAnswer is string && incoming().correctAnswer.size() <= 500;
+      allow delete: if isValidId(questionId);
+    }
+
+    // Admin Accounts collection - Persistent Multiple Administrators
+    match /admin_accounts/{username} {
+      allow read: if true;
+      allow create, update: if isValidId(username) &&
+        incoming().username == username &&
+        incoming().passwordHash is string &&
+        incoming().role is string;
+      allow delete: if isValidId(username);
+    }
+
+    // Event Configuration document
+    match /event_config/{configId} {
+      allow read: if true;
+      allow create, update: if isValidId(configId);
+      allow delete: if false;
+    }
+  }
+}
